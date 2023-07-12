@@ -1,12 +1,12 @@
 metadata:
   type: infrastructure
   project: tf-gcp-base-infra
-  description: "Manage wcc infrastructure code"
+  description: "Managedm infrastructure code"
   owner:
     team: cloud infrastructure
     teams-channel: '#CloudComputing'
     email: ContactEmail
 
 attrs:
-  jira: "https://westminstergov.atlassian.net/jira/software/c/projects/ICC/boards/134"
-  confluence: "https://westminstergov.atlassian.net/wiki/spaces/IT/overview?homepageId=73302018"
+  jira: ""
+  confluence: "
