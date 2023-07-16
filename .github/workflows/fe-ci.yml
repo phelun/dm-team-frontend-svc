@@ -1,4 +1,4 @@
-name: GKE Deployment Workflow
+name: fe-svc-build-pipeline
 
 on:
   push:
@@ -14,3 +14,15 @@ env:
 
   REPOSITORY: dm-poc-development-image-reg
   REPOSITORY_REGION: europe-west1     
+  IMAGE: dm-team-frontend-svc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3      
