@@ -18,6 +18,7 @@ env:
   REPOSITORY: dm-poc-development-image-reg
   REPOSITORY_REGION: europe-west1     
   IMAGE: dm-team-frontend-svc
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 jobs:
   fe-svc-build-pipeline:
@@ -48,6 +49,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
+
+     - name: Run Snyk to check for vulnerabilities
+       uses: snyk/actions/maven@master
+       env:
+         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
+       with:
+         command: code test          
 
     - name: Install dependency and src build svc 
       working-directory: src
