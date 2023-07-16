@@ -65,6 +65,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        version: '>= 416.0.0' 
+        
     - name: Set up Google Cloud Authentications 
       id: 'auth'
       uses: 'google-github-actions/auth@v1'
@@ -72,12 +77,7 @@ jobs:
         workload_identity_provider: 'projects/635793351475/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-oidc-provider-id'
         service_account: infra-sa@dm-poc-development.iam.gserviceaccount.com
         create_credentials_file: true
-        activate_credentials_file: true   
-        
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
-      with:
-        version: '>= 416.0.0'              
+        activate_credentials_file: true                
 
     - name: Create image tag
       run: |
