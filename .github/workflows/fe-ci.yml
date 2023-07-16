@@ -91,7 +91,7 @@ jobs:
     - name: Build Docker image
       working-directory: src
       run: | 
-        gcloud auth configure-docker europe-docker.pkg.dev
+        gcloud auth configure-docker europe-west1-docker.pkg.dev
         docker build --tag "${{ env.IMAGE_TAG }}"  .
         docker push "${{ env.IMAGE_TAG }}"
 
