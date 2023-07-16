@@ -17,7 +17,7 @@ env:
   IMAGE: dm-team-frontend-svc
 
 jobs:
-  build:
+  fe-svc-build-pipeline:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -25,4 +25,18 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3      
+      uses: actions/checkout@v3
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        version: '>= 416.0.0'      
+
+    - name: Set up Google Cloud Authentications 
+      id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        workload_identity_provider: 'projects/635793351475/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-oidc-provider-id'
+        service_account: infra-sa@dm-poc-development.iam.gserviceaccount.com
+        create_credentials_file: true
+        activate_credentials_file: true      
