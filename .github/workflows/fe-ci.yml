@@ -59,6 +59,10 @@ jobs:
 
   fe-svc-push-image-to-gcp-repo: 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     needs: [fe-svc-build-pipeline]   # only if the app build and test successfully
 
     steps:
@@ -69,7 +73,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@v1
       with:
         version: '>= 416.0.0' 
-        
+
     - name: Set up Google Cloud Authentications 
       id: 'auth'
       uses: 'google-github-actions/auth@v1'
