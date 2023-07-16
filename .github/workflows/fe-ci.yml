@@ -50,12 +50,12 @@ jobs:
       with:
         node-version: '18.x'
 
-     - name: Run Snyk to check for vulnerabilities
-       uses: snyk/actions/maven@master
-       env:
-         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
-       with:
-         command: code test          
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/maven@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
+      with:
+        command: code test          
 
     - name: Install dependency and src build svc 
       working-directory: src
