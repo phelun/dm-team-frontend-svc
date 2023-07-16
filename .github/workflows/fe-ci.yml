@@ -40,3 +40,18 @@ jobs:
         service_account: infra-sa@dm-poc-development.iam.gserviceaccount.com
         create_credentials_file: true
         activate_credentials_file: true      
+
+    - name: Setup nodejs 
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+
+    - name: build and simple test svc 
+      working-directory: src
+      run: | 
+        npm install
+        # npm run build --if-present
+        # npm test 
+
+
+
