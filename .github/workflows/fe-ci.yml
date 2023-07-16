@@ -71,7 +71,7 @@ jobs:
     - name: Build Docker image
       working-directory: src
       run: | 
-        docker build --tag "${{ env.IMAGE_TAG }}" src/     
+        docker build --tag "${{ env.IMAGE_TAG }}"  
         docker push "${{ env.IMAGE_TAG }}"
 
 
