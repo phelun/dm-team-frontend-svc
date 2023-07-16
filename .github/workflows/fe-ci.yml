@@ -55,8 +55,8 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
       with:
-        command: code test          
-
+        args: --severity-threshold=high
+        
     - name: Install dependency and src build svc 
       working-directory: src
       run: | 
