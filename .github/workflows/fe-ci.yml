@@ -86,11 +86,12 @@ jobs:
     - name: Create image tag
       run: |
         echo "IMAGE_TAG=${{ env.REPOSITORY_REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:$GITHUB_SHA" >> $GITHUB_ENV
-        gcloud auth configure-docker europe-docker.pkg.dev
+        
 
     - name: Build Docker image
       working-directory: src
       run: | 
+        gcloud auth configure-docker europe-docker.pkg.dev
         docker build --tag "${{ env.IMAGE_TAG }}"  .
         docker push "${{ env.IMAGE_TAG }}"
 
