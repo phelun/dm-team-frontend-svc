@@ -59,7 +59,7 @@ jobs:
 
   fe-svc-push-image-to-gcp-repo: 
     runs-on: ubuntu-latest
-    needs: [build_test]   # only if the app build and test successfully
+    needs: [fe-svc-build-pipeline]   # only if the app build and test successfully
 
     steps:
     - name: Checkout
