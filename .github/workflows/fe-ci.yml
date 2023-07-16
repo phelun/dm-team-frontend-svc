@@ -1,0 +1,16 @@
+name: GKE Deployment Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  PROJECT_ID: dm-poc-development
+  # PROJECT_NUMBER: PROJECT_NUMBER
+
+  CLUSTER: dm-poc-dev
+  CLUSTER_ZONE: europe-west1
+
+  REPOSITORY: dm-poc-development-image-reg
+  REPOSITORY_REGION: europe-west1     
