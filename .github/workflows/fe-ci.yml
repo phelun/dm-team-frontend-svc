@@ -50,15 +50,17 @@ jobs:
       with:
         node-version: '18.x'
 
-    # - name: Run Snyk to check for vulnerabilities
-    #   working-directory: src
-    #   uses: snyk/actions/maven@master
-    #   env:
-    #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
-    #   with:
-    #     command: monitor
-    #       # args: --severity-threshold=high
-    #       # args: --file=src/Dockerfile
+    - name: Install Snyk CLI
+      run: npm install -g snyk
+
+    - name: Run Snyk vulnerability scan
+      run: snyk test --all-projects --all-sub-projects --severity-threshold=high --all-branches --dev --file=src/package.json
+
+    - name: Generate Snyk report
+      id: snyk-report
+      run: |
+        SNYK_JSON=$(snyk test --all-projects --all-sub-projects --severity-threshold=high --json)
+        echo "::set-output name=json::$SNYK_JSON"
 
     - name: Install dependency and src build svc 
       working-directory: src
