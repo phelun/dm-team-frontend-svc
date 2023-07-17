@@ -56,7 +56,9 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
       with:
-        args: --severity-threshold=high
+        command: monitor
+          args: --severity-threshold=high
+          args: --file=src/Dockerfile
 
     - name: Install dependency and src build svc 
       working-directory: src
