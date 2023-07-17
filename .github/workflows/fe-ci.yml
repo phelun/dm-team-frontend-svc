@@ -51,8 +51,8 @@ jobs:
         node-version: '18.x'
 
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/maven@master
       working-directory: src
+      uses: snyk/actions/maven@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
       with:
