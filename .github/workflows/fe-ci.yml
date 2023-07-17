@@ -58,7 +58,7 @@ jobs:
       with:
         command: monitor
           # args: --severity-threshold=high
-          args: --file=src/Dockerfile
+          # args: --file=src/Dockerfile
 
     - name: Install dependency and src build svc 
       working-directory: src
