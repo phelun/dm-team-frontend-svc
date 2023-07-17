@@ -54,7 +54,8 @@ jobs:
       run: npm install -g snyk
 
     - name: Run Snyk vulnerability scan
-      run: snyk test --all-sub-projects --severity-threshold=high --all-branches --dev --file=src/package.json
+      run: npx snyk test --all-projects --directory=src
+
 
     - name: Generate Snyk report
       id: snyk-report
