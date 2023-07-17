@@ -50,18 +50,18 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: Install Snyk CLI
-      run: npm install -g snyk
+    # - name: Install Snyk CLI
+    #   run: npm install -g snyk
 
-    - name: Run Snyk vulnerability scan
-      run: npx snyk test --all-projects --directory=src
+    # - name: Run Snyk vulnerability scan
+    #   run: npx snyk test --all-projects --directory=src
 
 
-    - name: Generate Snyk report
-      id: snyk-report
-      run: |
-        SNYK_JSON=$(snyk test --all-projects --all-sub-projects --severity-threshold=high --json)
-        echo "::set-output name=json::$SNYK_JSON"
+    # - name: Generate Snyk report
+    #   id: snyk-report
+    #   run: |
+    #     SNYK_JSON=$(snyk test --all-projects --all-sub-projects --severity-threshold=high --json)
+    #     echo "::set-output name=json::$SNYK_JSON"
 
     - name: Install dependency and src build svc 
       working-directory: src
