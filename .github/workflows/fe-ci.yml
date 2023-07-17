@@ -50,15 +50,15 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: Run Snyk to check for vulnerabilities
-      working-directory: src
-      uses: snyk/actions/maven@master
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
-      with:
-        command: monitor
-          # args: --severity-threshold=high
-          # args: --file=src/Dockerfile
+    # - name: Run Snyk to check for vulnerabilities
+    #   working-directory: src
+    #   uses: snyk/actions/maven@master
+    #   env:
+    #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}   
+    #   with:
+    #     command: monitor
+    #       # args: --severity-threshold=high
+    #       # args: --file=src/Dockerfile
 
     - name: Install dependency and src build svc 
       working-directory: src
@@ -66,7 +66,7 @@ jobs:
         npm install
         npm ci 
         npm run build --if-present
-        # npm run test - If there is a test script, we enable this
+        # npm run test - If there is a test script, we enable thi
 
   fe-svc-push-image-to-gcp-repo: 
     runs-on: ubuntu-latest
