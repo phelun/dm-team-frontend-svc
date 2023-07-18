@@ -21,7 +21,7 @@ spec:
       containers:
       - name: app
         # image: phelun/dm-app-1:0.1
-        image: eu.gcr.io/dm-poc-development/dm-team-frontend-svc:v0.1
+        image: europe-west1-docker.pkg.dev/dm-poc-development/dm-poc-development-image-reg/dm-team-frontend-svc:7c34fa3b55118f03c36eb90a349664081d68450d
         ports:
           - containerPort: 8080
         env:
@@ -40,7 +40,7 @@ metadata:
   name: dm-poc-app
   namespace: dm-poc-app
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
       targetPort: 8080
